@@ -1,10 +1,21 @@
 {
  "project": "p01",
- "task": "14-class peptidase family (multiclass)",
- "model": "one-hot(family,class) -> GPU MLP",
- "main_n": 11174,
- "val_acc": 0.9856823266219239,
- "val_bacc": 0.9813294349280438,
- "ext1_note": "ext1=ChEMBL thrombin 化合物表(无标签、输入空间不同)，冒烟级跳过",
- "ext2_note": "ext2=RCSB PDB 结构表(无标签、特征不同)，冒烟级跳过"
+ "model": "ft",
+ "method": "FT-Transformer 特征标记化 Transformer（表格多分类）",
+ "n_main": 11174,
+ "n_classes": 14,
+ "features": [
+  "kd_pActivity(num,单位已换算)",
+  "kd_missing(num,指示量)",
+  "inhibitor_family(cat130)",
+  "inhibitor_class(cat1776)"
+ ],
+ "n_num": 2,
+ "n_cat": 2,
+ "note": "已排除 peptidase_family（与 family_label 同源，属泄漏）与 inhibitor_name（自由文本）；使用抑制剂家族/编号 + 解析后的亲和力数值建模",
+ "cv_auc_mean": 0.9607534434812064,
+ "cv_auc_std": 0.003384278147136773,
+ "cv_n": 15,
+ "passed": true,
+ "elapsed_s": 461
 }
