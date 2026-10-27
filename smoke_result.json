@@ -1,0 +1,10 @@
+{
+ "project": "p01",
+ "task": "14-class peptidase family (multiclass)",
+ "model": "one-hot(family,class) -> GPU MLP",
+ "main_n": 11174,
+ "val_acc": 0.9856823266219239,
+ "val_bacc": 0.9813294349280438,
+ "ext1_note": "ext1=ChEMBL thrombin 化合物表(无标签、输入空间不同)，冒烟级跳过",
+ "ext2_note": "ext2=RCSB PDB 结构表(无标签、特征不同)，冒烟级跳过"
+}
