@@ -1,23 +1,14 @@
 {
- "project": "p01",
- "model": "ft",
- "method": "FT-Transformer 特征标记化 Transformer（表格多分类）",
- "n_main": 11174,
- "n_classes": 14,
- "features": [
-  "kd_pActivity(num,单位已换算)",
-  "kd_missing(num,指示量)",
-  "inhibitor_family(cat130)",
-  "inhibitor_class(cat1776)"
- ],
- "n_num": 2,
- "n_cat": 2,
- "note": "⚠️ 泄漏：可用特征仅为抑制剂身份标识符，无分子结构描述符；0.9608为身份记忆(仅inhibitor_name记忆上限0.874)，非真实预测能力。",
- "cv_auc_mean": 0.9607534434812064,
- "cv_auc_std": 0.003384278147136773,
+ "project": "p01_thrombin",
+ "model": "xgb",
+ "method": "XGBoost 梯度提升树（Morgan 分子指纹）",
+ "n_main": 545,
+ "n_classes": 2,
+ "cv_auc_mean": 0.9647230831068964,
+ "cv_auc_std": 0.012778612062381102,
  "cv_n": 15,
- "passed": false,
- "elapsed_s": 461,
- "leakage": true,
- "leakage_type": "identity_metadata"
+ "passed": true,
+ "leakage": false,
+ "rescued": true,
+ "note": "已重写为干净的'分子结构->活性'二分类: 仅以 Morgan 指纹为输入, 无任何化合物身份标识符, 无信息泄漏。"
 }
