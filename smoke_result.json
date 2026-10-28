@@ -12,10 +12,12 @@
  ],
  "n_num": 2,
  "n_cat": 2,
- "note": "已排除 peptidase_family（与 family_label 同源，属泄漏）与 inhibitor_name（自由文本）；使用抑制剂家族/编号 + 解析后的亲和力数值建模",
+ "note": "⚠️ 泄漏：可用特征仅为抑制剂身份标识符，无分子结构描述符；0.9608为身份记忆(仅inhibitor_name记忆上限0.874)，非真实预测能力。",
  "cv_auc_mean": 0.9607534434812064,
  "cv_auc_std": 0.003384278147136773,
  "cv_n": 15,
- "passed": true,
- "elapsed_s": 461
+ "passed": false,
+ "elapsed_s": 461,
+ "leakage": true,
+ "leakage_type": "identity_metadata"
 }
